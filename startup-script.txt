@@ -1,0 +1,30 @@
+# C:/Projects/IntegratedSystem/start_system.bat
+@echo off
+color 0A
+
+echo Islamic Wisdom & Management System
+echo ================================
+echo.
+
+REM Create Python virtual environment if it doesn't exist
+if not exist venv (
+    echo Creating virtual environment...
+    python -m venv venv
+)
+
+REM Activate virtual environment
+call venv\Scripts\activate
+
+REM Install required packages
+echo Installing required packages...
+pip install anthropic
+pip install python-dotenv
+pip install colorama
+pip install asyncio
+pip install aiohttp
+
+REM Start the system
+echo Starting system...
+python interfaces/main.py
+
+pause
